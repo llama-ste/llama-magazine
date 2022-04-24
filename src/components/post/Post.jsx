@@ -57,10 +57,10 @@ const Post = (props) => {
         <CardHeader
           avatar={
             <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-              {user.nickname[0].toUpperCase()}
+              {user?.nickname[0].toUpperCase()}
             </Avatar>
           }
-          title={user.nickname}
+          title={user?.nickname}
           subheader={createdAt}
         />
         {layout === "top" && (
@@ -151,7 +151,7 @@ const Post = (props) => {
             variant="contained"
             onClick={() => navigate(`/edit-post/${postId}`)}
           >
-            Edit
+            수정
           </Button>
         )}
       </CardActions>

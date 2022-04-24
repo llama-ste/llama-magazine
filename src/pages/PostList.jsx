@@ -6,7 +6,7 @@ import { useCallback } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 
 import { getCookie } from "../shared/cookie";
-import { getPostAxios } from "../store/thunk-actions/postActions";
+import { getPostsAxios } from "../store/thunk-actions/postActions";
 import Post from "../components/post/Post";
 import Loader from "../components/ui/Loader";
 
@@ -27,7 +27,7 @@ const PostListPage = () => {
     }
     const page = pagination.next_page !== undefined ? pagination.next_page : 1;
 
-    dispatch(getPostAxios(token, page));
+    dispatch(getPostsAxios(token, page));
   }, [dispatch, token, isLoading, pagination]);
 
   const posts = postList.map((p) => {

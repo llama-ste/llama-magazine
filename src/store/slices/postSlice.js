@@ -18,7 +18,7 @@ const postSlice = createSlice({
       state.list.unshift(action.payload);
       state.isLoading = false;
     },
-    getPost(state, action) {
+    getPosts(state, action) {
       const prevId = [];
       state.list.forEach((p) => prevId.push(p.id));
       const currId = [];
@@ -34,6 +34,10 @@ const postSlice = createSlice({
       state.pagination = action.payload.pagination;
       state.isLoading = false;
       state.isEmpty = false;
+    },
+    getOnePost(state, action) {
+      state.list = [action.payload];
+      state.isLoading = false;
     },
     updatePost(state, action) {
       const postId = Number(action.payload.postId);

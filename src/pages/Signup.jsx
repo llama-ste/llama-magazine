@@ -15,11 +15,13 @@ import { signupAxios } from "../store/thunk-actions/userActions";
 const SignupPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isAvailable, isLoading } = useSelector((state) => state.user);
+  const { isAvailable, isLoading, isLogin } = useSelector(
+    (state) => state.user
+  );
   const [isCheck, setIsCheck] = useState(false);
   const token = getCookie("token");
 
-  if (token) {
+  if (token && isLogin) {
     window.alert("이미 로그인이 되어있습니다.");
     navigate("/", { replace: true });
   }

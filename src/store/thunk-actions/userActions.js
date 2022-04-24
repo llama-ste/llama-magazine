@@ -1,6 +1,7 @@
 import { userActions } from "../slices/userSlice";
 import { instance } from "../../services/axios";
 import { postActions } from "../slices/postSlice";
+import { deleteCookie } from "../../shared/cookie";
 
 export const signupAxios = (
   email,
@@ -45,9 +46,9 @@ export const loginAxios = (email, password, navigate) => {
         uid: response.data.id,
       };
 
-      dispatch(postActions.resetPost());
-      dispatch(userActions.login({ user, token: response.data.token }));
       navigate("/", { replace: true });
+      dispatch(userActions.login({ user, token: response.data.token }));
+      dispatch(postActions.resetPost());
     } catch (err) {
       console.log("로그인 실패 : ", err.response);
     }
@@ -81,8 +82,8 @@ export const logoutAxios = (token, navigate) => {
         }
       );
 
-      dispatch(postActions.resetPost());
       dispatch(userActions.logout());
+      dispatch(postActions.resetPost());
       navigate("/", { replace: true });
     } catch (err) {
       console.log(err.response);
@@ -107,9 +108,9 @@ export const loginCheckAxios = (token, navigate) => {
 
       dispatch(userActions.loginCheck({ user, isValid: true }));
     } catch (err) {
-      window.alert("로그인이 만료 되었습니다.");
       dispatch(userActions.loginCheck({ user: null, isValid: false }));
-      navigate("/login", { replace: true });
+      window.alert("로그인이 만료 되었습니다.");
+      navigate("/signin", { replace: true });
       console.log("로그인 체크 실패 :", err.response);
     }
   };

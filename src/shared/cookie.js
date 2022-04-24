@@ -1,24 +1,19 @@
-const getCookie = (name) => {
-  let value = "; " + document.cookie;
+import { Cookies } from "react-cookie";
 
-  let parts = value.split(`; ${name}=`);
+const cookies = new Cookies();
 
-  if (parts.length === 2) {
-    return parts.pop().split(";").shift();
-  }
+export const getCookie = (name) => {
+  return cookies.get(name);
 };
 
-const setCookie = (name, value, exp = 5) => {
-  let date = new Date();
-  date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
-
-  document.cookie = `${name}=${value}; expires=${date.toUTCString()}`;
+export const setCookie = (name, value) => {
+  return cookies.set(name, value, {
+    path: "/",
+  });
 };
 
-const deleteCookie = (name) => {
-  let date = new Date("2020-01-01").toUTCString();
-
-  document.cookie = name + "=; expires=" + date;
+export const deleteCookie = (name) => {
+  return cookies.remove(name, {
+    path: "/",
+  });
 };
-
-export { getCookie, setCookie, deleteCookie };

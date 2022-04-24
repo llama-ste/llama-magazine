@@ -27,7 +27,7 @@ export const addPostAxios = (content, imageUrl, layout, token, navigate) => {
   };
 };
 
-export const getPostAxios = (token, page) => {
+export const getPostsAxios = (token, page) => {
   return async function (dispatch) {
     dispatch(postActions.loading(true));
     try {
@@ -38,7 +38,7 @@ export const getPostAxios = (token, page) => {
       });
 
       dispatch(
-        postActions.getPost({
+        postActions.getPosts({
           posts: response.data.posts,
           pagination: response.data.pagination,
         })
@@ -46,6 +46,40 @@ export const getPostAxios = (token, page) => {
     } catch (err) {
       dispatch(postActions.loading(false));
       console.log("포스트 리스트 가져오기 실패 :", err.response);
+    }
+  };
+};
+
+export const getOnePostAxios = (postId, token) => {
+  return async function (dispatch) {
+    dispatch(postActions.loading(true));
+
+    try {
+      if (token) {
+        const response = await instance.get("/users/me", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const user = {
+          email: response.data.email,
+          nickname: response.data.nickname,
+          uid: response.data.id,
+        };
+
+        dispatch(userActions.loginCheck({ user, isValid: true }));
+      }
+
+      const res = await instance.get(`/posts/${postId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      dispatch(postActions.getOnePost(res.data));
+    } catch (err) {
+      console.log("포스트 하나 가져오기 실패 :", err.response);
     }
   };
 };

@@ -208,7 +208,7 @@ const PostForm = ({ postId }) => {
                     onClick={deletePostHandler}
                     variant="contained"
                     size="large"
-                    color="warning"
+                    color="error"
                   >
                     게시글 삭제
                   </Button>

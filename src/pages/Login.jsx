@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
@@ -12,8 +12,9 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const token = getCookie("token");
+  const isLogin = useSelector((state) => state.user.isLogin);
 
-  if (token) {
+  if (token && isLogin) {
     window.alert("이미 로그인이 되어있습니다.");
     navigate("/", { replace: true });
   }

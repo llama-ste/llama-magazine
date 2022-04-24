@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { getCookie } from "../../shared/cookie";
+import { getCookie, deleteCookie } from "../../shared/cookie";
 import { logoutAxios } from "../../store/thunk-actions/userActions";
 
 const Header = () => {
