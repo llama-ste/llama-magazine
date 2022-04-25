@@ -7,6 +7,7 @@ const initialState = {
   isLogin: false,
   isAvailable: false,
   isLoading: false,
+  isSignup: false,
 };
 
 const userSlice = createSlice({
@@ -17,6 +18,7 @@ const userSlice = createSlice({
       setCookie("token", action.payload.token);
       state.user = action.payload.user;
       state.isLogin = true;
+      state.isSignup = true;
     },
     login(state, action) {
       setCookie("token", action.payload.token);

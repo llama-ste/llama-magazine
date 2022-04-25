@@ -1,7 +1,6 @@
 import { userActions } from "../slices/userSlice";
 import { instance } from "../../services/axios";
 import { postActions } from "../slices/postSlice";
-import { deleteCookie } from "../../shared/cookie";
 
 export const signupAxios = (
   email,
@@ -23,6 +22,7 @@ export const signupAxios = (
       user = { email, nickname, uid: response.data.id };
 
       dispatch(userActions.signup({ user, token: response.data.token }));
+      dispatch(postActions.resetPost());
       navigate("/", { replace: true });
     } catch (err) {
       console.log("회원가입 실패 : ", err.response);
@@ -50,6 +50,13 @@ export const loginAxios = (email, password, navigate) => {
       dispatch(userActions.login({ user, token: response.data.token }));
       dispatch(postActions.resetPost());
     } catch (err) {
+      if (err.response.data.error_code === 40103) {
+        window.alert("비밀번호가 유효하지 않습니다.");
+      }
+      if (err.response.data.error_code === 40101) {
+        window.alert("유효하지 않은 아이디 입니다.");
+      }
+
       console.log("로그인 실패 : ", err.response);
     }
   };

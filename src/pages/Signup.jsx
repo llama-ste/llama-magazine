@@ -15,13 +15,13 @@ import { signupAxios } from "../store/thunk-actions/userActions";
 const SignupPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isAvailable, isLoading, isLogin } = useSelector(
+  const { isAvailable, isLoading, isLogin, isSignup } = useSelector(
     (state) => state.user
   );
   const [isCheck, setIsCheck] = useState(false);
   const token = getCookie("token");
 
-  if (token && isLogin) {
+  if (token && isLogin && !isSignup) {
     window.alert("이미 로그인이 되어있습니다.");
     navigate("/", { replace: true });
   }
@@ -29,10 +29,21 @@ const SignupPage = () => {
   const { handleSubmit, control, getValues } = useForm();
 
   const submitHandler = ({ id, nickname, pwd, pwdConfirm }) => {
+    if (!isCheck) {
+      window.alert("아이디 중복 확인을 해주세요.");
+      return;
+    }
+
     if (!isAvailable && isCheck) {
       window.alert("ID를 확인을 해주세요.");
       return;
     }
+
+    if (pwd !== pwdConfirm) {
+      window.alert("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+
     dispatch(
       signupAxios(id, nickname, pwd, pwdConfirm, (url, opt) =>
         navigate(url, opt)
