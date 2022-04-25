@@ -42,6 +42,8 @@ const Post = (props) => {
   const likeHandler = () => {
     if (likedByMe === null) {
       window.alert("로그인이 필요합니다.");
+      navigate("/signin");
+      return;
     }
 
     if (likedByMe) {
