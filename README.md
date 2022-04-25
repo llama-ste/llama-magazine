@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# llama's magazine
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+라마의 매거진은 일상을 공유할 수 있는 SNS 서비스입니다.
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+## Intro
 
-### `npm start`
+항해99 PBL 과제로 만들게된 프로젝트 입니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Requirements
 
-### `npm test`
+- 회원가입, 로그인 기능 만들기
+- 게시글 CRUD 만들기
+- 게시글에 레이아웃 적용
+- 게시글 좋아요 버튼 만들기
+- 게시글 댓글 CRUD 만들기
+- 메인 페이지의 게시글 리스트에 무한 스크롤 적용
+- Route level에 lazy loading 적용
+- 상태 관리 툴 사용
+- 모든 페이지는 반응형으로 구현
+- 예외처리
+   * 로그인한 사용자가 로그인, 회원가입 페이지에 접근시 경고문을 보여주고 홈페이지로 이동
+   * 로그인하지 않은 사용자가 좋아요 버튼을 눌렀을 경우 경고문을 보여주고 로그인페이지로 이동
+   * 백엔드 서버와 통신할때 발생하는 에러 핸들링
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `npm run build`
+## Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Language: `Javascript`
+- Frontend: `React`, `Redux`, `Redux-toolkit`, `Material UI`, `Styled-components`, `React-hook-form`, `React-infinite-scroller`
+- Backend: `Ruby On Rails`, `Postgresql`
+- [백엔드 Repository](https://github.com/robinseo/llama-magazine-api)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## What I Learned
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Redux, React-redux, Redux-toolkit을 사용하여 전역 상태 관리
+- Logger, Redux-devtools 등으로 액션 흐름 캐치
+- toolkit의 default middleware인 thunk로 비동기 작업 처리
+- Token을 Cookie에 저장하고 API 요청시 토큰 유효성 검사
+- Cookie의 path는 "/"로 통일
+- React-infinite-scroller를 사용한 페이지네이션
+- React-hook-form을 사용하여 state, ref를 별도로 만들지 않고 회원가입, 로그인 처리
+- Postman을 사용하여 REST API 테스트 진행
