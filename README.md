@@ -12,15 +12,14 @@
 
 ## Requirements
 
-- 회원가입, 로그인 기능 만들기
-- 게시글 CRUD 만들기
-- 게시글에 레이아웃 적용
-- 게시글 좋아요 버튼 만들기
-- 게시글 댓글 CRUD 만들기
-- 메인 페이지의 게시글 리스트에 무한 스크롤 적용
-- Route level에 lazy loading 적용
-- 상태 관리 툴 사용
-- 모든 페이지는 반응형으로 구현
+- 토큰 기반 인증 - 회원가입, 로그인, 로그아웃
+- 게시글 CRUD
+- 4가지 레이아웃을 가진 게시물
+- 게시글 좋아요, 댓글 기능
+- 게시물 무한 스크롤
+- Route lazy loading 적용
+- 상태 관리 툴 사용 (redux, recoil 등)
+- 반응형 웹
 - 예외처리
    * 로그인한 사용자가 로그인, 회원가입 페이지에 접근시 경고문을 보여주고 홈페이지로 이동
    * 로그인하지 않은 사용자가 좋아요 버튼을 눌렀을 경우 경고문을 보여주고 로그인페이지로 이동
@@ -41,12 +40,12 @@
 ## What I Learned
 
 - Redux, React-redux, Redux-toolkit을 사용하여 전역 상태 관리
-- Logger, Redux-devtools 등으로 액션 흐름 캐치
-- toolkit의 default middleware인 thunk로 비동기 작업 처리
-- Token을 Cookie에 저장하고 API 요청시 토큰 유효성 검사
-- Cookie의 path는 "/"로 통일
+- Logger, Redux-devtools를 사용한 디버깅
+- redux-thunk로 비동기 작업 처리
+- Token 기반의 인증 시스템에 대한 이해
+- Cookie의 기본적인 사용법 익힘
 - React-infinite-scroller를 사용한 페이지네이션
-- React-hook-form을 사용하여 state, ref를 별도로 만들지 않고 회원가입, 로그인 처리
+- React-hook-form을 사용하여 간편하게 회원가입, 로그인 처리
 - Postman을 사용하여 REST API 테스트 진행
 
 <br>
