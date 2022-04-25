@@ -34,6 +34,7 @@
 - Frontend: `React`, `Redux`, `Redux-toolkit`, `Material UI`, `Styled-components`, `React-hook-form`, `React-infinite-scroller`
 - Backend: `Ruby On Rails`, `Postgresql`
 - [백엔드 Repository](https://github.com/robinseo/llama-magazine-api)
+- [API Guide](https://documenter.getpostman.com/view/630693/UyrAFxMJ#652f6750-eaa8-448e-8967-39e5140b5bc1)
 
 <br>
 
