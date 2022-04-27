@@ -36,7 +36,6 @@ export const getPostsAxios = (token, page) => {
           Authorization: `Bearer ${token}`,
         },
       });
-
       dispatch(
         postActions.getPosts({
           posts: response.data.posts,

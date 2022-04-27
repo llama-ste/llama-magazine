@@ -48,7 +48,7 @@ const PostForm = ({ postId }) => {
     if (isEdit) {
       dispatch(postActions.setPreview(post.image_url));
       setLayout(post.layout);
-      setContents(post.contents);
+      setContents(post.content);
     }
 
     return () => dispatch(postActions.setPreview(null));

@@ -96,6 +96,7 @@ const SignupPage = () => {
           sx={{ fontWeight: 900, width: "30%" }}
           variant="contained"
           size="small"
+          style={{ minWidth: "72.5px" }}
           onClick={() => idCheckHandler()}
         >
           중복 확인
